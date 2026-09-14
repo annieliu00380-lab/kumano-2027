@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊野古道中邊路 雙朝聖證書與擊鼓祈福之旅 (3/25 - 3/28)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2 font-bold text-lg text-emerald-400 hover:text-emerald-300 transition">
+                <i class="fa-solid fa-torii-gate text-xl"></i>
+                <span>熊野雙朝聖 2026</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#home" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-house mr-1"></i>首頁</a>
+                <a href="#overview" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-compass mr-1"></i>行程總覽</a>
+                <a href="#schedule" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-calendar-days mr-1"></i>每日詳細</a>
+                <a href="#transport" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-bus mr-1"></i>交通美食與地圖</a>
+                <a href="#gear" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-list-check mr-1"></i>雙朝聖準備</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white text-xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700 px-4 py-3 space-y-2 text-slate-200">
+            <a href="#home" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-house mr-2"></i>首頁</a>
+            <a href="#overview" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-compass mr-2"></i>行程總覽</a>
+            <a href="#schedule" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-calendar-days mr-2"></i>每日詳細行程</a>
+            <a href="#transport" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-bus mr-2"></i>交通美食與地圖</a>
+            <a href="#gear" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-list-check mr-2"></i>雙朝聖準備清單</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-16">
+
+        <!-- SECTION 1: HOME (HERO) -->
+        <section id="home" class="relative py-16 px-4 bg-gradient-to-b from-slate-800 to-slate-900 border-b border-slate-800">
+            <div class="max-w-4xl mx-auto text-center space-y-6">
+                <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+                    <i class="fa-solid fa-calendar"></i> 3/25 (三) – 3/28 (六) 4天3夜
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    熊野古道中邊路<br><span class="text-emerald-400">雙朝聖證書與擊鼓祈福之旅</span>
+                </h1>
+                <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+                    那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉 ➔ 發心門王子輕健行 ➔ 本宮大社擊鼓
+                </p>
+
+                <!-- Key Stat Badges -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-3xl mx-auto text-left">
+                    <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">核心任務</div>
+                        <div class="text-base font-bold text-emerald-400 mt-0.5">雙朝聖證書 + 黎明殿擊鼓</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">關鍵鐵道</div>
+                        <div class="text-base font-bold text-amber-400 mt-0.5">JR 特急黑潮號 (Kuroshio)</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">世界遺產古湯</div>
+                        <div class="text-base font-bold text-sky-400 mt-0.5">湯之峰溫泉 (J-Hoppers)</div>
+                    </div>
+                    <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">行李策略</div>
+                        <div class="text-base font-bold text-purple-400 mt-0.5">勝浦/新宮寄物 + 輕裝過夜</div>
+                    </div>
+                </div>
+
+                <!-- Quick Navigation Pills -->
+                <div class="pt-6 flex flex-wrap justify-center gap-2">
+                    <a href="#day1" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D1 台北➔關西➔紀伊田邊</a>
+                    <a href="#day2" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D2 那智➔速玉➔湯之峰</a>
+                    <a href="#day3" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D3 發心門王子➔本宮大社擊鼓➔和歌山</a>
+                    <a href="#day4" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D4 和歌山城➔關西機場➔台灣</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: OVERVIEW & DUAL PILGRIMAGE PROCESS -->
+        <section id="overview" class="py-12 px-4 max-w-5xl mx-auto space-y-8">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">行程總覽與雙朝聖申辦 (Overview)</h2>
+                <p class="text-xs text-slate-400 mt-1">結合熊野三山參拜與西班牙聖雅各之路靈魂交會的旅程</p>
+            </div>
+
+            <!-- Dual Pilgrim Special Box -->
+            <div class="bg-gradient-to-br from-emerald-950/80 to-slate-800 p-6 rounded-2xl border border-emerald-600/40 space-y-4">
+                <h3 class="font-bold text-lg text-emerald-300 flex items-center gap-2">
+                    <i class="fa-solid fa-certificate text-xl text-emerald-400"></i>
+                    <span>雙朝聖證書 (Dual Pilgrim Certificate) 申辦與擊鼓流程</span>
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4 text-xs text-slate-300">
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                        <div class="font-bold text-emerald-400 flex items-center gap-1.5">
+                            <span class="w-5 h-5 bg-emerald-500 text-slate-950 rounded-full flex items-center justify-center font-extrabold text-xs">1</span>
+                            審核與領證：世界遺產熊野本宮館
+                        </div>
+                        <p class="leading-relaxed text-slate-300">
+                            • <strong>位置：</strong>位於熊野本宮大社公車總站旁、大社大鳥居正對面。<br>
+                            • <strong>流程：</strong>至觀光服務櫃檯出示「西班牙聖雅各之路證書」與「熊野古道集章本」供館員審核，填寫資料即可獲頒專屬雙朝聖證書與紀念胸章。
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                        <div class="font-bold text-amber-400 flex items-center gap-1.5">
+                            <span class="w-5 h-5 bg-amber-500 text-slate-950 rounded-full flex items-center justify-center font-extrabold text-xs">2</span>
+                            祈福擊鼓儀式：熊野本宮大社
+                        </div>
+                        <p class="leading-relaxed text-slate-300">
+                            • <strong>地點：</strong>熊野本宮大社 拜殿（黎明殿）外西側簷下。<br>
+                            • <strong>流程：</strong>領取證書後至大社社務所出示，館方安排領取專屬禮品，並由專人引導至指定地點進行祈福擊太鼓儀式。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accommodation & Luggage Grid -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Summary Card 1: Tickets -->
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 space-y-3">
+                    <h3 class="font-bold text-sky-400 flex items-center gap-2">
+                        <i class="fa-solid fa-ticket"></i> 關鍵車票與預訂
+                    </h3>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li class="flex justify-between border-b border-slate-700/50 pb-1.5">
+                            <span>D1 JR 特急黑潮號 (關西機場 ➔ 紀伊田邊)</span>
+                            <span class="text-amber-400 font-bold">需預訂指定席</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-700/50 pb-1.5">
+                            <span>D2 湯之峰溫泉 晚餐「湯垢離 You Got It Bar」</span>
+                            <span class="text-emerald-400 font-bold">已預約 17:20</span>
+                        </li>
+                        <li class="flex justify-between border-b border-slate-700/50 pb-1.5">
+                            <span>D3 JR 特急黑潮號 30號 (新宮 15:04 ➔ 和歌山 18:35)</span>
+                            <span class="text-sky-400 font-bold">火車上享用晚餐輕食</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Summary Card 2: Lodging & Luggage -->
+                <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 space-y-3">
+                    <h3 class="font-bold text-purple-400 flex items-center gap-2">
+                        <i class="fa-solid fa-hotel"></i> 住宿與行李配置
+                    </h3>
+                    <ul class="text-xs text-slate-300 space-y-2">
+                        <li class="border-b border-slate-700/50 pb-1.5">
+                            <span class="text-slate-400">D1 (3/25)：</span>紀伊田邊車站周邊飯店
+                        </li>
+                        <li class="border-b border-slate-700/50 pb-1.5">
+                            <span class="text-slate-400">D2 (3/26)：</span>湯之峰溫泉 J-Hoppers <span class="text-amber-400">(大行李鎖新宮站置物櫃，攜輕裝過夜)</span>
+                        </li>
+                        <li class="border-b border-slate-700/50 pb-1.5">
+                            <span class="text-slate-400">D3 (3/27)：</span>和歌山東橫 Inn <span class="text-emerald-400">(新宮站取大行李後搭火車前往)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: DAILY DETAILED SCHEDULE -->
+        <section id="schedule" class="py-12 px-4 max-w-5xl mx-auto space-y-10">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">每日詳細行程 (Daily Schedule)</h2>
+                <p class="text-xs text-slate-400 mt-1">包含時刻表、轉乘細節、蓋章點與美食連結</p>
+            </div>
+
+            <!-- DAY 1 -->
+            <div id="day1" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+                <div class="bg-sky-900/60 p-4 sm:p-5 border-b border-sky-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-950 px-2.5 py-1 rounded-md border border-sky-700/50">Day 1 | 3/25 (三)</span>
+                        <h3 class="text-xl font-bold text-white mt-1">台北 ➔ 關西國際機場 ➔ 紀伊田邊</h3>
+                    </div>
+                    <div class="text-xs text-slate-300">
+                        <i class="fa-solid fa-bed text-sky-400"></i> 宿：紀伊田邊車站周邊飯店
+                    </div>
+                </div>
+                <div class="p-5 space-y-3 text-sm text-slate-300">
+                    <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-amber-300 text-xs">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i> <strong>重要代辦：</strong> 抵達關西機場領取/購買 JR 特急黑潮號 (Kuroshio) 車票並劃位。
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-plane-arrival text-sky-400 mt-1"></i>
+                            <span>班機抵達關西國際機場，辦理入境手續與提取行李。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-train text-sky-400 mt-1"></i>
+                            <span>搭乘 JR 特急黑潮號前往紀伊田邊站，抵達後辦理飯店入住並早點休息，準備明日熊野三山行程。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div id="day2" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 2 | 3/26 (四)</span>
+                        <h3 class="text-xl font-bold text-white mt-1">瀑布、神社與古湯：那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉</h3>
+                    </div>
+                    <div class="text-xs text-slate-300">
+                        <i class="fa-solid fa-bed text-emerald-400"></i> 宿：湯之峰溫泉 J-Hoppers
+                    </div>
+                </div>
+                <div class="p-5 space-y-4 text-sm text-slate-300">
+                    <!-- Timeline -->
+                    <div class="space-y-3 border-l-2 border-emerald-500/50 pl-4 text-xs sm:text-sm">
+                        <div class="flex justify-between">
+                            <span class="font-bold text-emerald-400">06:24 - 08:47</span>
+                            <span>紀伊田邊搭車 ➔ 紀伊勝浦（早餐於 7-11 購妥在車上享用，抵達勝浦站寄寄物櫃）</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-emerald-400">09:05 - 09:25</span>
+                            <span>勝浦站搭巴士至 Kumano Kodo 下車 ➔ 徒步大門坂往上走（約 30 分鐘）</span>
+                        </div>
+                        <div class="bg-emerald-950/60 p-2.5 rounded-lg border border-emerald-700/50 text-emerald-300 font-semibold my-1">
+                            10:00 熊野那智大社（蓋章參拜）➔ 10:40 往飛龍神社 ➔ 11:00 飛龍神社（蓋章）
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60">
+                            <span>11:30 午餐：那智山 美山亭</span>
+                            <a href="https://maps.app.goo.gl/CgcGyZhEcpfDUrvr8" target="_blank" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-2 py-1 rounded flex items-center gap-1">
+                                <i class="fa-solid fa-map-location-dot"></i> 地圖
+                            </a>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-slate-300">12:31 - 12:58</span>
+                            <span>Nachi-no-Taki-mae 搭巴士返勝浦車站取行李 (車資 ¥630)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-sky-400">13:26 - 14:03</span>
+                            <span>搭熊野御坊南海巴士 12號 (新勝·新宮駅行) 至速玉大社參拜蓋章</span>
+                        </div>
+                        <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60 space-y-1">
+                            <div class="font-bold text-amber-300 flex items-center justify-between">
+                                <span><i class="fa-solid fa-bread-slice"></i> 必買麵包：Megane (巧巴達三明治麵包軟Q)</span>
+                                <a href="https://maps.app.goo.gl/W1g6XTQyjPt2v5g88" target="_blank" class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2 py-1 rounded">地圖</a>
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-purple-400">15:00 - 15:53</span>
+                            <span>步行回新宮站 (20分)。<strong>大行李鎖新宮站置物櫃，僅攜過夜衣服</strong>。Lawson 買飲料補給。</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-sky-400">15:53 - 17:01</span>
+                            <span>新宮站搭 53號巴士 ➔ 17:01 抵達「湯之峰溫泉 (Yunomine Onsen)」入住 J-Hoppers</span>
+                        </div>
+                        <div class="bg-amber-900/40 p-3 rounded-xl border border-amber-600/50 text-xs font-bold text-amber-200 flex justify-between items-center">
+                            <span><i class="fa-solid fa-utensils"></i> 17:20 晚餐：湯垢離 You Got It Bar (已預約)</span>
+                            <a href="https://you-got-it-bar.com/index.php" target="_blank" class="text-xs underline text-amber-300">官網連結</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div id="day3" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 3 | 3/27 (五)</span>
+                        <h3 class="text-xl font-bold text-white mt-1">熊野古道輕健行與太鼓之響 ➔ 和歌山</h3>
+                    </div>
+                    <div class="text-xs text-slate-300">
+                        <i class="fa-solid fa-bed text-emerald-400"></i> 宿：和歌山東橫 Inn
+                    </div>
+                </div>
+                <div class="p-5 space-y-4 text-sm text-slate-300">
+                    <div class="space-y-3 border-l-2 border-emerald-500/50 pl-4 text-xs sm:text-sm">
+                        <div class="flex justify-between">
+                            <span class="font-bold text-emerald-400">05:30 - 07:20</span>
+                            <span>湯之峰晨湯溫泉 ➔ 06:00 早餐與退房整理 ➔ 07:20 附近漫步</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-emerald-400">07:54 - 08:37</span>
+                            <span>搭 81號巴士 (Yunomine Onsen ➔ 發心門王子)</span>
+                        </div>
+                        <div class="bg-emerald-950/80 p-3 rounded-lg border border-emerald-700/50 text-xs font-bold text-emerald-300 my-2 space-y-1">
+                            <div>08:37 - 11:20 熊野古道輕健行 (發心門王子 ➔ 熊野本宮大社，約 7 km)</div>
+                            <p class="text-slate-300 font-normal">下坡為主的經典舒適精華路段，享受杉木林與村落古道風光。</p>
+                        </div>
+
+                        <!-- Certificate & Taiko Special Highlight -->
+                        <div class="bg-gradient-to-r from-emerald-900/80 to-amber-900/80 p-4 rounded-xl border border-emerald-500/50 space-y-2 text-xs">
+                            <div class="font-bold text-white text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-award text-amber-400"></i>
+                                <span>11:20 抵達熊野本宮大社：申辦雙朝聖證書 & 黎明殿擊鼓</span>
+                            </div>
+                            <p class="text-slate-200">
+                                1. 前往【世界遺產熊野本宮館】出示「西班牙證書 + 集章本」審核，領取<strong>雙朝聖證書與紀念胸章</strong>。<br>
+                                2. 前往【熊野本宮大社 社務所】出示證書領取專屬禮品。<br>
+                                3. 由專人引導至【拜殿 (黎明殿) 西側】進行<strong>祈福擊太鼓儀式</strong>。<br>
+                                4. 順遊【大齋原】巨大鳥居。
+                            </p>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <span class="font-bold text-sky-400">13:25 - 14:25</span>
+                            <span>本宮大社前搭 52號巴士 ➔ 14:25 抵達新宮車站（至置物櫃取大行李，車站購買便當/點心）</span>
+                        </div>
+                        <div class="bg-sky-950/60 p-3 rounded-xl border border-sky-700/50 font-bold text-sky-300 flex justify-between items-center">
+                            <span><i class="fa-solid fa-train"></i> 15:04 - 18:35</span>
+                            <span>搭乘 JR 特急黑潮號 30號 (新宮 ➔ 和歌山)，車上享用晚餐</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold text-slate-300">18:35 後</span>
+                            <span>抵達和歌山，入住東橫 Inn，可享用和歌山拉麵夜宵。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div id="day4" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 4 | 3/28 (六)</span>
+                        <h3 class="text-xl font-bold text-white mt-1">和歌山城 ➔ 關西國際機場 ➔ 溫暖的家</h3>
+                    </div>
+                    <div class="text-xs text-slate-300">
+                        <i class="fa-solid fa-plane-departure text-emerald-400"></i> 返程
+                    </div>
+                </div>
+                <div class="p-5 text-sm text-slate-300 space-y-2">
+                    <p>• 晨間飯店退房，前往參觀【和歌山城】天守閣與庭園。</p>
+                    <p>• 搭乘電車前往關西國際機場，辦理登機與免稅店採買，順利搭機返台，結束完美的雙朝聖擊鼓之旅！</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SECTION 4: TRANSPORT & MAPS -->
+        <section id="transport" class="py-12 px-4 max-w-5xl mx-auto space-y-8">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">交通與地圖指引 (Transport & Maps)</h2>
+                <p class="text-xs text-slate-400 mt-1">關鍵巴士路線與特色美食店家定位</p>
+            </div>
+
+            <!-- Bus Route Table -->
+            <div class="bg-slate-800 rounded-2xl border border-slate-700 p-5 space-y-4">
+                <h3 class="font-bold text-emerald-400 text-base"><i class="fa-solid fa-bus mr-1"></i> 關鍵巴士搭乘對照表</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 text-slate-300 border-b border-slate-700">
+                                <th class="p-2.5">日期</th>
+                                <th class="p-2.5">路線 / 巴士編號</th>
+                                <th class="p-2.5">搭乘區間 (時刻)</th>
+                                <th class="p-2.5">備註說明</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700/50 text-slate-300">
+                            <tr>
+                                <td class="p-2.5 font-bold text-emerald-400">D2 (3/26)</td>
+                                <td class="p-2.5">那智山路線巴士</td>
+                                <td class="p-2.5">勝浦站 (09:05) ➔ Kumano Kodo (09:25)</td>
+                                <td class="p-2.5">大門坂入口下車往上走</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-emerald-400">D2 (3/26)</td>
+                                <td class="p-2.5">熊野御坊南海巴士 12號</td>
+                                <td class="p-2.5">勝浦站 (13:26) ➔ 速玉大社 (14:03)</td>
+                                <td class="p-2.5">往新宮站方向</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-emerald-400">D2 (3/26)</td>
+                                <td class="p-2.5">53號巴士</td>
+                                <td class="p-2.5">新宮站 (15:53) ➔ 湯之峰溫泉 (17:01)</td>
+                                <td class="p-2.5">攜過夜包入住 J-Hoppers</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-sky-400">D3 (3/27)</td>
+                                <td class="p-2.5">81號巴士</td>
+                                <td class="p-2.5">湯之峰溫泉 (07:54) ➔ 發心門王子 (08:37)</td>
+                                <td class="p-2.5">健行出發點</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2.5 font-bold text-sky-400">D3 (3/27)</td>
+                                <td class="p-2.5">52號巴士</td>
+                                <td class="p-2.5">本宮大社前 (13:25) ➔ 新宮站 (14:25)</td>
+                                <td class="p-2.5">返回新宮站取大行李</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- External Links Grid -->
+            <div class="grid sm:grid-cols-3 gap-4">
+                <a href="https://maps.app.goo.gl/CgcGyZhEcpfDUrvr8" target="_blank" class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-emerald-500 transition flex justify-between items-center text-xs">
+                    <div>
+                        <div class="font-bold text-slate-200">那智山 美山亭</div>
+                        <div class="text-slate-400 mt-0.5">D2 午餐地點</div>
+                    </div>
+                    <i class="fa-solid fa-map-location-dot text-emerald-400 text-base"></i>
+                </a>
+                <a href="https://maps.app.goo.gl/W1g6XTQyjPt2v5g88" target="_blank" class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-amber-500 transition flex justify-between items-center text-xs">
+                    <div>
+                        <div class="font-bold text-slate-200">Megane 巧巴達麵包</div>
+                        <div class="text-slate-400 mt-0.5">新宮站周邊人氣麵包</div>
+                    </div>
+                    <i class="fa-solid fa-map-location-dot text-amber-400 text-base"></i>
+                </a>
+                <a href="https://you-got-it-bar.com/index.php" target="_blank" class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-sky-500 transition flex justify-between items-center text-xs">
+                    <div>
+                        <div class="font-bold text-slate-200">湯垢離 You Got It Bar</div>
+                        <div class="text-slate-400 mt-0.5">D2 晚餐 (17:20 已預約)</div>
+                    </div>
+                    <i class="fa-solid fa-utensils text-sky-400 text-base"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECTION 5: DUAL PILGRIM CHECKLIST -->
+        <section id="gear" class="py-12 px-4 max-w-5xl mx-auto space-y-8">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">雙朝聖準備清單 (Dual Pilgrim Checklist)</h2>
+                <p class="text-xs text-slate-400 mt-1">出發前務必確認攜帶之關鍵文件與裝備</p>
+            </div>
+
+            <div class="bg-slate-800 rounded-2xl border border-slate-700 p-5 grid sm:grid-cols-2 gap-3 text-xs">
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/60 rounded-lg cursor-pointer hover:bg-slate-900 transition border border-emerald-500/30">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> <span><strong>西班牙聖雅各之路證書 (Compostela) 原件</strong></span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/60 rounded-lg cursor-pointer hover:bg-slate-900 transition border border-emerald-500/30">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> <span><strong>熊野古道集章本 (Pilgrim Credential)</strong></span>
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/50 rounded-lg cursor-pointer hover:bg-slate-900 transition">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> 輕量健行鞋 / 抓地力佳運動鞋
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/50 rounded-lg cursor-pointer hover:bg-slate-900 transition">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> 湯之峰溫泉小包（裝 Day 2 過夜衣物與洗沐用具）
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/50 rounded-lg cursor-pointer hover:bg-slate-900 transition">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> JR 特急黑潮號車票 / 劃位紀錄
+                </label>
+                <label class="flex items-center gap-2 p-2.5 bg-slate-900/50 rounded-lg cursor-pointer hover:bg-slate-900 transition">
+                    <input type="checkbox" class="w-4 h-4 accent-emerald-500"> 雨具 (輕便雨衣/折傘) & 行動糧食
+                </label>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p>熊野古道中邊路 雙朝聖證書與擊鼓祈福之旅 • Designed for GitHub Pages</p>
+            <p class="text-slate-600">May the Kumano deities bless your pilgrimage!</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
