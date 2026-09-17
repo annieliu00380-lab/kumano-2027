@@ -29,6 +29,7 @@
                 <a href="#home" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-house mr-1"></i>首頁</a>
                 <a href="#overview" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-compass mr-1"></i>行程總覽</a>
                 <a href="#schedule" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-calendar-days mr-1"></i>每日詳細</a>
+                <a href="#expense" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-calculator mr-1"></i>分帳記帳</a>
                 <a href="#transport" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-bus mr-1"></i>交通美食與地圖</a>
                 <a href="#gear" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-list-check mr-1"></i>雙朝聖準備</a>
             </nav>
@@ -44,6 +45,7 @@
             <a href="#home" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-house mr-2"></i>首頁</a>
             <a href="#overview" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-compass mr-2"></i>行程總覽</a>
             <a href="#schedule" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-calendar-days mr-2"></i>每日詳細行程</a>
+            <a href="#expense" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-calculator mr-2"></i>每日分帳記帳</a>
             <a href="#transport" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-bus mr-2"></i>交通美食與地圖</a>
             <a href="#gear" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-list-check mr-2"></i>雙朝聖準備清單</a>
         </div>
@@ -180,7 +182,7 @@
         <section id="schedule" class="py-12 px-4 max-w-5xl mx-auto space-y-10">
             <div class="border-l-4 border-emerald-500 pl-4">
                 <h2 class="text-2xl font-bold text-white">每日詳細行程 (Daily Schedule)</h2>
-                <p class="text-xs text-slate-400 mt-1">包含時刻表、轉乘細節、蓋章點與美食連結</p>
+                <p class="text-xs text-slate-400 mt-1">包含時刻表、轉乘細節、蓋章點、即時天氣與 Google 地圖導航</p>
             </div>
 
             <!-- DAY 1 -->
@@ -190,8 +192,11 @@
                         <span class="text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-950 px-2.5 py-1 rounded-md border border-sky-700/50">Day 1 | 3/25 (四)</span>
                         <h3 class="text-xl font-bold text-white mt-1">台北 ➔ 關西國際機場 ➔ 紀伊田邊</h3>
                     </div>
-                    <div class="text-xs text-slate-300">
-                        <i class="fa-solid fa-bed text-sky-400"></i> 宿：紀伊田邊車站周邊飯店
+                    <div class="flex items-center gap-4 text-xs text-slate-300">
+                        <div id="weather-day1" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-sky-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-spinner fa-spin"></i> 載入天氣數據中...
+                        </div>
+                        <div><i class="fa-solid fa-bed text-sky-400"></i> 宿：紀伊田邊車站周邊飯店</div>
                     </div>
                 </div>
                 <div class="p-5 space-y-3 text-sm text-slate-300">
@@ -205,7 +210,10 @@
                         </li>
                         <li class="flex items-start gap-2">
                             <i class="fa-solid fa-train text-sky-400 mt-1"></i>
-                            <span>搭乘 JR 特急黑潮號前往紀伊田邊站，抵達後辦理飯店入住並早點休息，準備明日熊野三山行程。</span>
+                            <span class="flex-grow">搭乘 JR 特急黑潮號前往紀伊田邊站，抵達後辦理飯店入住並早點休息。</span>
+                            <a href="https://www.google.com/maps/search/?api=1&query=紀伊田邊車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded transition flex items-center gap-1 shrink-0">
+                                <i class="fa-solid fa-map-location-dot"></i> 紀伊田邊站
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -218,23 +226,29 @@
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 2 | 3/26 (五)</span>
                         <h3 class="text-xl font-bold text-white mt-1">瀑布、神社與古湯：那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉</h3>
                     </div>
-                    <div class="text-xs text-slate-300">
-                        <i class="fa-solid fa-bed text-emerald-400"></i> 宿：湯之峰溫泉 J-Hoppers
+                    <div class="flex items-center gap-4 text-xs text-slate-300">
+                        <div id="weather-day2" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-spinner fa-spin"></i> 載入天氣數據中...
+                        </div>
+                        <div><i class="fa-solid fa-bed text-emerald-400"></i> 宿：湯之峰溫泉 J-Hoppers</div>
                     </div>
                 </div>
                 <div class="p-5 space-y-4 text-sm text-slate-300">
-                    <!-- Timeline -->
                     <div class="space-y-3 border-l-2 border-emerald-500/50 pl-4 text-xs sm:text-sm">
-                        <div class="flex justify-between">
-                            <span class="font-bold text-emerald-400">06:24 - 08:47</span>
-                            <span>紀伊田邊搭車 ➔ 紀伊勝浦（早餐於 7-11 購妥在車上享用，抵達勝浦站寄寄物櫃）</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-emerald-400">06:24 - 08:47</span> 紀伊田邊搭車 ➔ 紀伊勝浦（勝浦站寄物櫃）</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=紀伊勝浦車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">勝浦站</a>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-emerald-400">09:05 - 09:25</span>
-                            <span>勝浦站搭巴士至 Kumano Kodo 下車 ➔ 徒步大門坂往上走（約 30 分鐘）</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-emerald-400">09:05 - 09:25</span> 勝浦站搭巴士至 Kumano Kodo 下車 ➔ 大門坂古道徒步</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=熊野古道+大門坂" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">大門坂</a>
                         </div>
-                        <div class="bg-emerald-950/60 p-2.5 rounded-lg border border-emerald-700/50 text-emerald-300 font-semibold my-1">
-                            10:00 熊野那智大社（蓋章參拜）➔ 10:40 往飛龍神社 ➔ 11:00 飛龍神社（蓋章）
+                        <div class="bg-emerald-950/60 p-2.5 rounded-lg border border-emerald-700/50 text-emerald-300 font-semibold my-1 flex justify-between items-center">
+                            <span>10:00 熊野那智大社（蓋章參拜）➔ 10:40 往飛龍神社 ➔ 11:00 飛龍神社（蓋章）</span>
+                            <div class="flex gap-1">
+                                <a href="https://www.google.com/maps/search/?api=1&query=熊野那智大社" target="_blank" class="text-xs bg-emerald-700 hover:bg-emerald-600 text-white px-2 py-0.5 rounded">那智大社</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=飛龍神社+那智瀑布" target="_blank" class="text-xs bg-emerald-700 hover:bg-emerald-600 text-white px-2 py-0.5 rounded">飛龍神社</a>
+                            </div>
                         </div>
                         <div class="flex justify-between items-center bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60">
                             <span>11:30 午餐：那智山 美山亭</span>
@@ -242,13 +256,9 @@
                                 <i class="fa-solid fa-map-location-dot"></i> 地圖
                             </a>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-slate-300">12:31 - 12:58</span>
-                            <span>Nachi-no-Taki-mae 搭巴士返勝浦車站取行李 (車資 ¥630)</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-sky-400">13:26 - 14:03</span>
-                            <span>搭熊野御坊南海巴士 12號 (新勝·新宮駅行) 至速玉大社參拜蓋章</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-sky-400">13:26 - 14:03</span> 搭巴士至熊野速玉大社參拜蓋章</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=熊野速玉大社" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">速玉大社</a>
                         </div>
                         <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60 space-y-1">
                             <div class="font-bold text-amber-300 flex items-center justify-between">
@@ -256,13 +266,13 @@
                                 <a href="https://maps.app.goo.gl/W1g6XTQyjPt2v5g88" target="_blank" class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2 py-1 rounded">地圖</a>
                             </div>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-purple-400">15:00 - 15:53</span>
-                            <span>步行回新宮站 (20分)。<strong>大行李鎖新宮站置物櫃，僅攜過夜衣服</strong>。Lawson 買飲料補給。</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-purple-400">15:00 - 15:53</span> 回新宮站，大行李鎖置物櫃，攜過夜包</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=JR+新宮車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">新宮站</a>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-sky-400">15:53 - 17:01</span>
-                            <span>新宮站搭 53號巴士 ➔ 17:01 抵達「湯之峰溫泉 (Yunomine Onsen)」入住 J-Hoppers</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-sky-400">15:53 - 17:01</span> 新宮站搭 53號巴士 ➔ 抵達「湯之峰溫泉」入住 J-Hoppers</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=湯之峰溫泉" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">湯之峰溫泉</a>
                         </div>
 
                         <!-- Dinner Warning Box -->
@@ -287,8 +297,11 @@
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 3 | 3/27 (六)</span>
                         <h3 class="text-xl font-bold text-white mt-1">熊野古道輕健行與太鼓之響 ➔ 和歌山</h3>
                     </div>
-                    <div class="text-xs text-slate-300">
-                        <i class="fa-solid fa-bed text-emerald-400"></i> 宿：和歌山東橫 Inn
+                    <div class="flex items-center gap-4 text-xs text-slate-300">
+                        <div id="weather-day3" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-spinner fa-spin"></i> 載入天氣數據中...
+                        </div>
+                        <div><i class="fa-solid fa-bed text-emerald-400"></i> 宿：和歌山東橫 Inn</div>
                     </div>
                 </div>
                 <div class="p-5 space-y-4 text-sm text-slate-300">
@@ -297,9 +310,9 @@
                             <span class="font-bold text-emerald-400">05:30 - 07:20</span>
                             <span>湯之峰晨湯溫泉 ➔ 06:00 早餐與退房整理 ➔ 07:20 附近漫步</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-emerald-400">07:54 - 08:37</span>
-                            <span>搭 81號巴士 (Yunomine Onsen ➔ 發心門王子)</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-emerald-400">07:54 - 08:37</span> 搭 81號巴士 (Yunomine Onsen ➔ 發心門王子)</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=發心門王子" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">發心門王子</a>
                         </div>
                         <div class="bg-emerald-950/80 p-3 rounded-lg border border-emerald-700/50 text-xs font-bold text-emerald-300 my-2 space-y-1">
                             <div>08:37 - 11:20 熊野古道輕健行 (發心門王子 ➔ 熊野本宮大社，約 7 km)</div>
@@ -308,9 +321,12 @@
 
                         <!-- Certificate & Taiko Special Highlight -->
                         <div class="bg-gradient-to-r from-emerald-900/80 to-amber-900/80 p-4 rounded-xl border border-emerald-500/50 space-y-2 text-xs">
-                            <div class="font-bold text-white text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-award text-amber-400"></i>
-                                <span>11:20 抵達熊野本宮大社：申辦雙朝聖證書 & 黎明殿擊鼓</span>
+                            <div class="font-bold text-white text-sm flex items-center justify-between">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-award text-amber-400"></i>
+                                    11:20 抵達熊野本宮大社：申辦雙朝聖證書 & 黎明殿擊鼓
+                                </span>
+                                <a href="https://www.google.com/maps/search/?api=1&query=熊野本宮大社" target="_blank" class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2 py-0.5 rounded">本宮大社地圖</a>
                             </div>
                             <p class="text-slate-200">
                                 1. 前往【世界遺產熊野本宮館】出示「西班牙證書 + 集章本」審核，領取<strong>雙朝聖證書與紀念胸章</strong>。<br>
@@ -322,15 +338,15 @@
 
                         <div class="flex justify-between">
                             <span class="font-bold text-sky-400">13:25 - 14:25</span>
-                            <span>本宮大社前搭 52號巴士 ➔ 14:25 抵達新宮車站（至置物櫃取大行李，車站購買便當/點心）</span>
+                            <span>本宮大社前搭 52號巴士 ➔ 14:25 抵達新宮車站（至置物櫃取大行李）</span>
                         </div>
                         <div class="bg-sky-950/60 p-3 rounded-xl border border-sky-700/50 font-bold text-sky-300 flex justify-between items-center">
                             <span><i class="fa-solid fa-train"></i> 15:04 - 18:35</span>
                             <span>搭乘 JR 特急黑潮號 30號 (新宮 ➔ 和歌山)，車上享用晚餐</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold text-slate-300">18:35 後</span>
-                            <span>抵達和歌山，入住東橫 Inn，可享用和歌山拉麵夜宵。</span>
+                        <div class="flex justify-between items-center">
+                            <div><span class="font-bold text-slate-300">18:35 後</span> 抵達和歌山，入住東橫 Inn，可享用和歌山拉麵夜宵。</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=和歌山車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">和歌山站</a>
                         </div>
                     </div>
                 </div>
@@ -343,16 +359,98 @@
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 4 | 3/28 (日)</span>
                         <h3 class="text-xl font-bold text-white mt-1">和歌山城 ➔ 關西國際機場 ➔ 溫暖的家</h3>
                     </div>
-                    <div class="text-xs text-slate-300">
-                        <i class="fa-solid fa-plane-departure text-emerald-400"></i> 返程
+                    <div class="flex items-center gap-4 text-xs text-slate-300">
+                        <div id="weather-day4" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
+                            <i class="fa-solid fa-spinner fa-spin"></i> 載入天氣數據中...
+                        </div>
+                        <div><i class="fa-solid fa-plane-departure text-emerald-400"></i> 返程</div>
                     </div>
                 </div>
-                <div class="p-5 text-sm text-slate-300 space-y-2">
-                    <p>• 晨間飯店退房，前往參觀【和歌山城】天守閣與庭園。</p>
+                <div class="p-5 text-sm text-slate-300 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <p>• 晨間飯店退房，前往參觀【和歌山城】天守閣與庭園。</p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=和歌山城" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">和歌山城</a>
+                    </div>
                     <p>• 搭乘電車前往關西國際機場，辦理登機與免稅店採買，順利搭機返台，結束完美的雙朝聖擊鼓之旅！</p>
                 </div>
             </div>
+        </section>
 
+        <!-- NEW SECTION: EXPENSE TRACKER / SPLIT BILL -->
+        <section id="expense" class="py-12 px-4 max-w-5xl mx-auto space-y-8">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">每日分帳與記帳系統 (Expense Tracker)</h2>
+                <p class="text-xs text-slate-400 mt-1">輸入每筆消費金額與付款人，自動計算各日總額與每人平均分帳金額（資料自動保存在瀏覽器）</p>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-6">
+                <!-- Add New Expense Form -->
+                <form id="expense-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">日期</label>
+                        <select id="exp-day" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-emerald-500">
+                            <option value="D1">D1 (3/25)</option>
+                            <option value="D2">D2 (3/26)</option>
+                            <option value="D3">D3 (3/27)</option>
+                            <option value="D4">D4 (3/28)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">消費項目</label>
+                        <input type="text" id="exp-item" placeholder="例：午餐美山亭" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">金額 (JPY ¥)</label>
+                        <input type="number" id="exp-amount" placeholder="3000" min="0" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">先墊付款人</label>
+                        <input type="text" id="exp-payer" placeholder="例：小明" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-plus"></i> 新增記帳
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Dynamic Expense List Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 text-slate-300 border-b border-slate-700">
+                                <th class="p-3">日期</th>
+                                <th class="p-3">項目</th>
+                                <th class="p-3">金額 (JPY)</th>
+                                <th class="p-3">墊款人</th>
+                                <th class="p-3 text-center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expense-list-body" class="divide-y divide-slate-700/50 text-slate-300">
+                            <!-- JS Dynamic Ingestion -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Expense Summary Cards -->
+                <div class="grid sm:grid-cols-3 gap-4 pt-4 border-t border-slate-700/60">
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">總累積開銷</div>
+                        <div id="total-expense-val" class="text-xl font-bold text-emerald-400 mt-1">¥0</div>
+                    </div>
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">分帳人數計算</div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <input type="number" id="split-people-count" value="2" min="1" class="w-16 bg-slate-800 border border-slate-600 rounded px-2 py-0.5 text-slate-100 text-center text-sm font-bold">
+                            <span class="text-xs text-slate-400">人平均</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700">
+                        <div class="text-xs text-slate-400">每人應付均攤金額</div>
+                        <div id="per-person-val" class="text-xl font-bold text-amber-400 mt-1">¥0</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- SECTION 4: TRANSPORT & MAPS -->
@@ -495,6 +593,98 @@
         function closeMenu() {
             mobileMenu.classList.add('hidden');
         }
+
+        // --- Weather Fetching via Open-Meteo API ---
+        const weatherLocs = {
+            'weather-day1': { lat: 33.729, lon: 135.376, name: '田邊' },
+            'weather-day2': { lat: 33.668, lon: 135.890, name: '那智' },
+            'weather-day3': { lat: 33.834, lon: 135.773, name: '本宮' },
+            'weather-day4': { lat: 34.226, lon: 135.167, name: '和歌山' }
+        };
+
+        async function fetchWeather() {
+            for (const [id, loc] of Object.entries(weatherLocs)) {
+                try {
+                    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&current_weather=true`);
+                    const data = await res.json();
+                    if (data && data.current_weather) {
+                        const temp = Math.round(data.current_weather.temperature);
+                        const code = data.current_weather.weathercode;
+                        const icon = code > 3 ? 'fa-cloud-rain text-blue-400' : 'fa-sun text-amber-400';
+                        document.getElementById(id).innerHTML = `<i class="fa-solid ${icon}"></i> <span>${loc.name} ${temp}°C</span>`;
+                    }
+                } catch (e) {
+                    document.getElementById(id).innerHTML = `<i class="fa-solid fa-cloud"></i> <span>${loc.name} --°C</span>`;
+                }
+            }
+        }
+        fetchWeather();
+
+        // --- Expense Tracker Logic (LocalStorage Persistent) ---
+        let expenses = JSON.parse(localStorage.getItem('kumano_expenses')) || [
+            { id: 1, day: 'D2', item: '美山亭午餐', amount: 3200, payer: '小明' },
+            { id: 2, day: 'D3', item: 'JR車資備用', amount: 4500, payer: '小華' }
+        ];
+
+        const expForm = document.getElementById('expense-form');
+        const expListBody = document.getElementById('expense-list-body');
+        const totalExpVal = document.getElementById('total-expense-val');
+        const perPersonVal = document.getElementById('per-person-val');
+        const splitPeopleInput = document.getElementById('split-people-count');
+
+        function saveAndRenderExpenses() {
+            localStorage.setItem('kumano_expenses', JSON.stringify(expenses));
+            expListBody.innerHTML = '';
+            let total = 0;
+
+            expenses.forEach((exp, idx) => {
+                total += Number(exp.amount);
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-700/30 transition';
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-emerald-400">${exp.day}</td>
+                    <td class="p-3 text-slate-200">${exp.item}</td>
+                    <td class="p-3 font-mono">¥${Number(exp.amount).toLocaleString()}</td>
+                    <td class="p-3"><span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded text-[11px]">${exp.payer}</span></td>
+                    <td class="p-3 text-center">
+                        <button onclick="deleteExpense(${exp.id})" class="text-rose-400 hover:text-rose-300 p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                expListBody.appendChild(tr);
+            });
+
+            totalExpVal.textContent = `¥${total.toLocaleString()}`;
+            const count = Math.max(1, parseInt(splitPeopleInput.value) || 1);
+            const perPerson = Math.round(total / count);
+            perPersonVal.textContent = `¥${perPerson.toLocaleString()}`;
+        }
+
+        expForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const day = document.getElementById('exp-day').value;
+            const item = document.getElementById('exp-item').value.trim();
+            const amount = parseFloat(document.getElementById('exp-amount').value);
+            const payer = document.getElementById('exp-payer').value.trim();
+
+            if (item && !isNaN(amount) && payer) {
+                expenses.push({ id: Date.now(), day, item, amount, payer });
+                document.getElementById('exp-item').value = '';
+                document.getElementById('exp-amount').value = '';
+                saveAndRenderExpenses();
+            }
+        });
+
+        function deleteExpense(id) {
+            expenses = expenses.filter(e => e.id !== id);
+            saveAndRenderExpenses();
+        }
+
+        splitPeopleInput.addEventListener('input', saveAndRenderExpenses);
+
+        // Initial render
+        saveAndRenderExpenses();
     </script>
 </body>
 </html>
