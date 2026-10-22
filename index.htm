@@ -14,7 +14,7 @@
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col relative">
 
     <!-- Sticky Navigation Bar -->
     <header class="fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800 z-50">
@@ -25,27 +25,34 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+            <nav class="hidden lg:flex items-center gap-5 text-sm font-medium text-slate-300">
                 <a href="#home" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-house mr-1"></i>首頁</a>
                 <a href="#overview" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-compass mr-1"></i>行程總覽</a>
                 <a href="#schedule" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-calendar-days mr-1"></i>每日詳細</a>
                 <a href="#expense" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-calculator mr-1"></i>分帳記帳</a>
+                <a href="#gallery" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-camera mr-1"></i>相片收藏</a>
                 <a href="#transport" class="hover:text-emerald-400 transition py-1"><i class="fa-solid fa-bus mr-1"></i>交通與地圖</a>
+                <!-- ChatGPT Quick Translator Link -->
+                <a href="https://chatgpt.com/?q=%E8%AB%8B%E6%90%B5%E4%BB%BB%E6%88%91%E7%9A%84%E7%B1%B3%E7%94%B1%E6%97 me%E6%97%A5%E6%9C%AC%E9%9A%A8%E8%A1%8C%E5%8F%A3%E8%AD%AF%E5%93%A1%EF%BC%8C%E5%B0%87%E6%88%91%E8%AA%AA%E7%9A%84%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E8%87%AA%E7%84%B6%E6%97%A5%E6%96%87%EF%BC%8C%E6%88%96%E5%B0%87%E6%97%A5%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E4%B8%AD%E6%96%87%E3%80%82" target="_blank" class="bg-emerald-600/30 hover:bg-emerald-600 border border-emerald-500/50 text-emerald-300 hover:text-white px-3 py-1 rounded-lg transition flex items-center gap-1.5 text-xs">
+                    <i class="fa-solid fa-language text-sm"></i> ChatGPT 口譯
+                </a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" onclick="toggleMenu()" class="md:hidden text-slate-300 hover:text-white text-xl p-2 focus:outline-none">
+            <button id="menu-btn" onclick="toggleMenu()" class="lg:hidden text-slate-300 hover:text-white text-xl p-2 focus:outline-none">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700 px-4 py-3 space-y-2 text-slate-200">
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-800 border-b border-slate-700 px-4 py-3 space-y-2 text-slate-200">
             <a href="#home" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-house mr-2"></i>首頁</a>
             <a href="#overview" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-compass mr-2"></i>行程總覽</a>
             <a href="#schedule" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-calendar-days mr-2"></i>每日詳細行程</a>
             <a href="#expense" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-calculator mr-2"></i>每日分帳記帳</a>
+            <a href="#gallery" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-camera mr-2"></i>相片收藏夾</a>
             <a href="#transport" onclick="closeMenu()" class="block py-2 hover:text-emerald-400"><i class="fa-solid fa-bus mr-2"></i>交通與地圖</a>
+            <a href="https://chatgpt.com/?q=%E8%AB%8B%E6%90%B5%E4%BB%BB%E6%88%91%E7%9A%84%E6%97%A5%E6%9C%AC%E9%9A%A8%E8%A1%8C%E5%8F%A3%E8%AD%AF%E5%93%A1%EF%BC%8C%E5%B0%87%E6%88%91%E8%AA%AA%E7%9A%84%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E8%87%AA%E7%84%B6%E6%97%A5%E6%96%87%EF%BC%8C%E6%88%96%E5%B0%87%E6%97%A5%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E4%B8%AD%E6%96%87%E3%80%82" target="_blank" class="block py-2 text-emerald-400 font-bold"><i class="fa-solid fa-language mr-2"></i>開啟 ChatGPT 日文隨行口譯</a>
         </div>
     </header>
 
@@ -65,6 +72,17 @@
                     紀伊勝浦 ➔ 大門坂 ➔ 那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉 ➔ 發心門王子 ➔ 本宮大社擊鼓
                 </p>
 
+                <!-- Global Progress Bar Widget -->
+                <div class="bg-slate-800/90 p-4 rounded-xl border border-slate-700 max-w-xl mx-auto space-y-2">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-slate-300 font-bold"><i class="fa-solid fa-bars-progress text-emerald-400 mr-1.5"></i>行程完成進度</span>
+                        <span id="overall-progress-text" class="text-emerald-400 font-bold">0% (0/4 天)</span>
+                    </div>
+                    <div class="w-full bg-slate-900 h-2.5 rounded-full overflow-hidden border border-slate-700">
+                        <div id="overall-progress-bar" class="bg-emerald-500 h-full transition-all duration-500 w-0"></div>
+                    </div>
+                </div>
+
                 <!-- Key Stat Badges -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 max-w-3xl mx-auto text-left">
                     <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700">
@@ -83,14 +101,6 @@
                         <div class="text-xs text-slate-400">行李策略</div>
                         <div class="text-base font-bold text-purple-400 mt-0.5">勝浦/新宮寄物 + 輕裝過夜</div>
                     </div>
-                </div>
-
-                <!-- Quick Navigation Pills -->
-                <div class="pt-6 flex flex-wrap justify-center gap-2">
-                    <a href="#day1" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D1 台北➔關西➔紀伊勝浦</a>
-                    <a href="#day2" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D2 大門坂➔那智➔速玉➔湯之峰</a>
-                    <a href="#day3" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D3 發心門王子➔本宮大社擊鼓➔和歌山</a>
-                    <a href="#day4" class="px-3.5 py-1.5 bg-slate-800 hover:bg-emerald-600 text-slate-200 text-xs font-semibold rounded-lg border border-slate-700 transition">D4 和歌山城➔關西機場➔台灣</a>
                 </div>
             </div>
         </section>
@@ -143,11 +153,13 @@
                     <ul class="text-xs text-slate-300 space-y-2">
                         <li class="flex justify-between items-center border-b border-slate-700/50 pb-1.5">
                             <span>D1 JR 特急黑潮號 (關西機場 ➔ 紀伊勝浦)</span>
-                            <span class="text-amber-400 font-bold">需預訂指定席</span>
+                            <a href="https://www.jr-odekake.net/goyoyaku/e5489/" target="_blank" class="text-amber-400 font-bold hover:underline flex items-center gap-1">
+                                JR e5489 預約 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
                         </li>
                         <li class="flex justify-between items-center border-b border-slate-700/50 pb-1.5">
                             <span>D2 湯之峰晚餐「湯垢離 You Got It Bar」</span>
-                            <span class="text-rose-400 font-bold flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> 尚未預約 (待預約)</span>
+                            <span class="text-rose-400 font-bold flex items-center gap-1"><i class="fa-solid fa-triangle-exclamation"></i> 尚未預約</span>
                         </li>
                         <li class="flex justify-between items-center border-b border-slate-700/50 pb-1.5">
                             <span>D3 JR 特急黑潮號 30號 (新宮 15:04 ➔ 和歌山 18:35)</span>
@@ -180,26 +192,30 @@
         <section id="schedule" class="py-12 px-4 max-w-5xl mx-auto space-y-10">
             <div class="border-l-4 border-emerald-500 pl-4">
                 <h2 class="text-2xl font-bold text-white">每日詳細行程 (Daily Schedule)</h2>
-                <p class="text-xs text-slate-400 mt-1">包含時刻表、轉乘細節、蓋章點與 Google 地圖導航</p>
+                <p class="text-xs text-slate-400 mt-1">包含時刻表、轉乘細節、蓋章點與每日進度追蹤</p>
             </div>
 
             <!-- DAY 1 -->
             <div id="day1" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
-                <div class="bg-sky-900/60 p-4 sm:p-5 border-b border-sky-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                <div class="bg-sky-900/60 p-4 sm:p-5 border-b border-sky-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-950 px-2.5 py-1 rounded-md border border-sky-700/50">Day 1 | 3/25 (四)</span>
                         <h3 class="text-xl font-bold text-white mt-1">台北 ➔ 關西國際機場 ➔ 紀伊勝浦</h3>
                     </div>
-                    <div class="flex items-center gap-4 text-xs text-slate-300">
-                        <div id="weather-day1" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-sky-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-cloud-sun"></i> 紀伊勝浦 氣溫加載中...
-                        </div>
-                        <div><i class="fa-solid fa-bed text-sky-400"></i> 宿：紀伊勝浦 Oyado Hana</div>
+                    <!-- Status Selector for D1 -->
+                    <div class="flex items-center gap-3 text-xs">
+                        <span class="text-slate-400">今日進度：</span>
+                        <select id="status-d1" onchange="updateDayStatus('d1', this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-emerald-500 font-semibold">
+                            <option value="pending">⏳ 未開始</option>
+                            <option value="in_progress">🏃 進行中</option>
+                            <option value="completed">✅ 已完成</option>
+                        </select>
                     </div>
                 </div>
                 <div class="p-5 space-y-3 text-sm text-slate-300">
-                    <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-amber-300 text-xs">
-                        <i class="fa-solid fa-circle-exclamation mr-1"></i> <strong>重要代辦：</strong> 抵達關西機場領取/購買 JR 特急黑潮號 (Kuroshio) 車票並劃位。
+                    <div class="bg-amber-500/10 border border-amber-500/30 p-3 rounded-xl text-amber-300 text-xs flex justify-between items-center">
+                        <span><i class="fa-solid fa-circle-exclamation mr-1"></i> <strong>重要代辦：</strong> 抵達關西機場領取/購買 JR 特急黑潮號車票並劃位。</span>
+                        <a href="https://www.westjr.co.jp/global/tc/ticket/pass/" target="_blank" class="bg-amber-600/30 hover:bg-amber-600 text-amber-200 text-xs px-2 py-1 rounded border border-amber-500/50 shrink-0">JR 西日本官網</a>
                     </div>
                     <ul class="space-y-3 text-xs sm:text-sm">
                         <li class="flex items-start gap-2">
@@ -207,12 +223,8 @@
                             <span><strong>07:00</strong> 台灣桃園國際機場起飛 ➔ 抵達大阪關西國際機場 (KIX)。</span>
                         </li>
                         <li class="flex items-start gap-2">
-                            <i class="fa-solid fa-plane-arrival text-sky-400 mt-1"></i>
-                            <span>辦理入境手續與提取行李，至 JR 綠色窗口領取車票。</span>
-                        </li>
-                        <li class="flex items-start gap-2">
                             <i class="fa-solid fa-train text-sky-400 mt-1"></i>
-                            <span class="flex-grow">搭乘 JR 特急黑潮號 (Kuroshio) 直達紀伊勝浦站，抵達後入住 <strong>Oyado Hana</strong> 休息，為隔天大門坂健行儲備體力。</span>
+                            <span class="flex-grow">搭乘 JR 特急黑潮號 (Kuroshio) 直達紀伊勝浦站，抵達後入住 <strong>Oyado Hana</strong>。</span>
                             <a href="https://www.google.com/maps/search/?api=1&query=Oyado+Hana+紀伊勝浦" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded transition flex items-center gap-1 shrink-0">
                                 <i class="fa-solid fa-map-location-dot"></i> Oyado Hana
                             </a>
@@ -223,27 +235,30 @@
 
             <!-- DAY 2 -->
             <div id="day2" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
-                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 2 | 3/26 (五)</span>
-                        <h3 class="text-xl font-bold text-white mt-1">古道、瀑布與古湯：大門坂 ➔ 那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉</h3>
+                        <h3 class="text-xl font-bold text-white mt-1">大門坂 ➔ 那智大社 ➔ 飛龍神社 ➔ 速玉大社 ➔ 湯之峰溫泉</h3>
                     </div>
-                    <div class="flex items-center gap-4 text-xs text-slate-300">
-                        <div id="weather-day2" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-cloud-sun"></i> 湯之峰 氣溫加載中...
-                        </div>
-                        <div><i class="fa-solid fa-bed text-emerald-400"></i> 宿：湯之峰溫泉 J-Hoppers</div>
+                    <!-- Status Selector for D2 -->
+                    <div class="flex items-center gap-3 text-xs">
+                        <span class="text-slate-400">今日進度：</span>
+                        <select id="status-d2" onchange="updateDayStatus('d2', this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-emerald-500 font-semibold">
+                            <option value="pending">⏳ 未開始</option>
+                            <option value="in_progress">🏃 進行中</option>
+                            <option value="completed">✅ 已完成</option>
+                        </select>
                     </div>
                 </div>
                 <div class="p-5 space-y-4 text-sm text-slate-300">
                     <div class="space-y-3 border-l-2 border-emerald-500/50 pl-4 text-xs sm:text-sm">
                         <div class="flex justify-between items-center">
-                            <div><span class="font-bold text-emerald-400">早上</span> 從 Oyado Hana 出發，前往紀伊勝浦站搭乘巴士</div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=紀伊勝浦車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">勝浦站</a>
+                            <div><span class="font-bold text-emerald-400">早上</span> 從 Oyado Hana 出發，前往勝浦站搭乘巴士</div>
+                            <a href="https://www.kumanogobo-nankai-bus.com/routebus/" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">南海巴士官網時刻</a>
                         </div>
                         <div class="flex justify-between items-center">
-                            <div><span class="font-bold text-emerald-400">巴士行程</span> 勝浦站搭巴士至「大門坂」下車 ➔ 體驗大門坂杉木古道徒步</div>
-                            <a href="https://www.google.com/maps/search/?api=1&query=熊野古道+大門坂" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">大門坂</a>
+                            <div><span class="font-bold text-emerald-400">巴士行程</span> 勝浦站搭巴士至「大門坂」下車 ➔ 體驗大門坂古道徒步</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=熊野古道+大門坂" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">大門坂地圖</a>
                         </div>
                         <div class="bg-emerald-950/60 p-2.5 rounded-lg border border-emerald-700/50 text-emerald-300 font-semibold my-1 flex justify-between items-center">
                             <span>10:00 熊野那智大社（蓋章參拜）➔ 10:40 往飛龍神社 ➔ 11:00 飛龍神社（蓋章）</span>
@@ -262,18 +277,12 @@
                             <div><span class="font-bold text-sky-400">13:26 - 14:03</span> 搭巴士至熊野速玉大社參拜蓋章</div>
                             <a href="https://www.google.com/maps/search/?api=1&query=熊野速玉大社" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">速玉大社</a>
                         </div>
-                        <div class="bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60 space-y-1">
-                            <div class="font-bold text-amber-300 flex items-center justify-between">
-                                <span><i class="fa-solid fa-bread-slice"></i> 必買麵包：Megane (巧巴達三明治麵包軟Q)</span>
-                                <a href="https://maps.app.goo.gl/W1g6XTQyjPt2v5g88" target="_blank" class="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2 py-1 rounded">地圖</a>
-                            </div>
-                        </div>
                         <div class="flex justify-between items-center">
-                            <div><span class="font-bold text-purple-400">15:00 - 15:53</span> 至新宮站，將大行李鎖入置物櫃，改攜帶過夜包</div>
+                            <div><span class="font-bold text-purple-400">15:00 - 15:53</span> 至新宮站將大行李鎖入置物櫃，攜輕裝過夜包</div>
                             <a href="https://www.google.com/maps/search/?api=1&query=JR+新宮車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">新宮站</a>
                         </div>
                         <div class="flex justify-between items-center">
-                            <div><span class="font-bold text-sky-400">15:53 - 17:01</span> 新宮站搭 53號巴士 ➔ 抵達「湯之峰溫泉」入住 J-Hoppers</div>
+                            <div><span class="font-bold text-sky-400">15:53 - 17:01</span> 新宮站搭 53號巴士 ➔ 抵達湯之峰溫泉入住 J-Hoppers</div>
                             <a href="https://www.google.com/maps/search/?api=1&query=湯之峰溫泉" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">湯之峰溫泉</a>
                         </div>
 
@@ -294,23 +303,26 @@
 
             <!-- DAY 3 -->
             <div id="day3" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
-                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 3 | 3/27 (六)</span>
                         <h3 class="text-xl font-bold text-white mt-1">熊野古道輕健行與太鼓之響 ➔ 和歌山</h3>
                     </div>
-                    <div class="flex items-center gap-4 text-xs text-slate-300">
-                        <div id="weather-day3" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-cloud-sun"></i> 和歌山 氣溫加載中...
-                        </div>
-                        <div><i class="fa-solid fa-bed text-emerald-400"></i> 宿：和歌山東橫 Inn</div>
+                    <!-- Status Selector for D3 -->
+                    <div class="flex items-center gap-3 text-xs">
+                        <span class="text-slate-400">今日進度：</span>
+                        <select id="status-d3" onchange="updateDayStatus('d3', this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-emerald-500 font-semibold">
+                            <option value="pending">⏳ 未開始</option>
+                            <option value="in_progress">🏃 進行中</option>
+                            <option value="completed">✅ 已完成</option>
+                        </select>
                     </div>
                 </div>
                 <div class="p-5 space-y-4 text-sm text-slate-300">
                     <div class="space-y-3 border-l-2 border-emerald-500/50 pl-4 text-xs sm:text-sm">
                         <div class="flex justify-between">
                             <span class="font-bold text-emerald-400">05:30 - 07:20</span>
-                            <span>湯之峰晨湯溫泉 ➔ 06:00 早餐與退房整理 ➔ 07:20 附近漫步</span>
+                            <span>湯之峰晨湯溫泉 ➔ 06:00 早餐與退房 ➔ 07:20 附近漫步</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <div><span class="font-bold text-emerald-400">07:54 - 08:37</span> 搭 81號巴士 (Yunomine Onsen ➔ 發心門王子)</div>
@@ -347,7 +359,7 @@
                             <span>搭乘 JR 特急黑潮號 30號 (新宮 ➔ 和歌山)，車上享用晚餐</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <div><span class="font-bold text-slate-300">18:35 後</span> 抵達和歌山，入住東橫 Inn，可享用和歌山拉麵夜宵。</div>
+                            <div><span class="font-bold text-slate-300">18:35 後</span> 抵達和歌山，入住東橫 Inn，享用和歌山拉麵夜宵。</div>
                             <a href="https://www.google.com/maps/search/?api=1&query=和歌山車站" target="_blank" class="text-xs bg-slate-700 hover:bg-emerald-600 text-slate-200 px-2 py-0.5 rounded shrink-0">和歌山站</a>
                         </div>
                     </div>
@@ -356,16 +368,19 @@
 
             <!-- DAY 4 -->
             <div id="day4" class="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden shadow-xl">
-                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                <div class="bg-emerald-900/60 p-4 sm:p-5 border-b border-emerald-700/50 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                     <div>
                         <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-md border border-emerald-700/50">Day 4 | 3/28 (日)</span>
                         <h3 class="text-xl font-bold text-white mt-1">和歌山城 ➔ 關西國際機場 ➔ 溫暖的家</h3>
                     </div>
-                    <div class="flex items-center gap-4 text-xs text-slate-300">
-                        <div id="weather-day4" class="bg-slate-900/80 px-2.5 py-1 rounded-lg border border-slate-700 text-emerald-300 flex items-center gap-1.5">
-                            <i class="fa-solid fa-cloud-sun"></i> 關西機場 氣溫加載中...
-                        </div>
-                        <div><i class="fa-solid fa-plane-departure text-emerald-400"></i> 返程</div>
+                    <!-- Status Selector for D4 -->
+                    <div class="flex items-center gap-3 text-xs">
+                        <span class="text-slate-400">今日進度：</span>
+                        <select id="status-d4" onchange="updateDayStatus('d4', this.value)" class="bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-emerald-500 font-semibold">
+                            <option value="pending">⏳ 未開始</option>
+                            <option value="in_progress">🏃 進行中</option>
+                            <option value="completed">✅ 已完成</option>
+                        </select>
                     </div>
                 </div>
                 <div class="p-5 text-sm text-slate-300 space-y-3">
@@ -455,27 +470,70 @@
             </div>
         </section>
 
+        <!-- NEW SECTION: PHOTO GALLERY & MEMORIES -->
+        <section id="gallery" class="py-12 px-4 max-w-5xl mx-auto space-y-8">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl font-bold text-white">旅途照片與地標收藏夾 (Photo Gallery)</h2>
+                <p class="text-xs text-slate-400 mt-1">上傳與紀錄雙朝聖證書、朱印章及景點照片（資料自動儲存於瀏覽器）</p>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-6">
+                <!-- Add Photo Form -->
+                <form id="photo-form" onsubmit="addPhoto(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <div>
+                        <label class="block text-slate-400 mb-1">地標 / 景點名稱</label>
+                        <input type="text" id="photo-title" placeholder="例：熊野本宮大社 雙朝聖證書" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-slate-200 focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 mb-1">選擇照片檔案</label>
+                        <input type="file" id="photo-file" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-200 focus:outline-none focus:border-emerald-500 file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:bg-emerald-600 file:text-white hover:file:bg-emerald-500">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-lg transition flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> 新增照片收藏
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Photo Grid -->
+                <div id="photo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Photos rendered here -->
+                </div>
+            </div>
+        </section>
+
         <!-- SECTION 5: TRANSPORTATION & MAPS -->
         <section id="transport" class="py-12 px-4 max-w-5xl mx-auto space-y-6">
             <div class="border-l-4 border-emerald-500 pl-4">
-                <h2 class="text-2xl font-bold text-white">交通與地圖連結 (Transport & Maps)</h2>
-                <p class="text-xs text-slate-400 mt-1">關鍵巴士時刻表與實用工具</p>
+                <h2 class="text-2xl font-bold text-white">交通預排與官方查詢快捷 (Transport & Official Links)</h2>
+                <p class="text-xs text-slate-400 mt-1">一鍵直達官方時刻表與預約頁面</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-4 text-xs">
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
                 <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                    <div class="font-bold text-emerald-400"><i class="fa-solid fa-bus mr-1"></i> 熊野御坊南海巴士</div>
-                    <p class="text-slate-300">涵蓋勝浦站➔那智山、新宮站➔本宮大社/湯之峰溫泉等主要觀光路線。</p>
-                    <a href="https://www.kumanogobo-nankai-bus.com/" target="_blank" class="inline-block bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1 rounded mt-1">查看官方時刻表</a>
+                    <div class="font-bold text-amber-400 flex items-center gap-1.5"><i class="fa-solid fa-train"></i> JR 西日本 (e5489)</div>
+                    <p class="text-slate-300">特急黑潮號 (Kuroshio) 預約與劃位查詢。</p>
+                    <a href="https://www.jr-odekake.net/goyoyaku/e5489/" target="_blank" class="inline-block bg-slate-700 hover:bg-emerald-600 text-slate-200 px-3 py-1 rounded transition">JR 官方查詢/預約</a>
                 </div>
                 <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
-                    <div class="font-bold text-sky-400"><i class="fa-solid fa-map mr-1"></i> 熊野古道官方地圖下載</div>
+                    <div class="font-bold text-emerald-400 flex items-center gap-1.5"><i class="fa-solid fa-bus"></i> 熊野御坊南海巴士</div>
+                    <p class="text-slate-300">勝浦站➔大門坂 / 新宮站➔湯之峰溫泉 / 本宮大社。</p>
+                    <a href="https://www.kumanogobo-nankai-bus.com/routebus/" target="_blank" class="inline-block bg-slate-700 hover:bg-emerald-600 text-slate-200 px-3 py-1 rounded transition">南海巴士官方時刻表</a>
+                </div>
+                <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
+                    <div class="font-bold text-sky-400 flex items-center gap-1.5"><i class="fa-solid fa-map"></i> 熊野古道官方地圖</div>
                     <p class="text-slate-300">中邊路詳細健行路線、蓋章點與王子遺址地圖。</p>
-                    <a href="https://www.tb-kumano.jp/zh-tw/kumano-kodo/" target="_blank" class="inline-block bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1 rounded mt-1">前往田邊市觀光協會</a>
+                    <a href="https://www.tb-kumano.jp/zh-tw/kumano-kodo/" target="_blank" class="inline-block bg-slate-700 hover:bg-emerald-600 text-slate-200 px-3 py-1 rounded transition">田邊市觀光協會下載</a>
                 </div>
             </div>
         </section>
 
     </main>
+
+    <!-- Floating ChatGPT Translator Floating Action Button -->
+    <a href="https://chatgpt.com/?q=%E8%AB%8B%E6%90%B5%E4%BB%BB%E6%88%91%E7%9A%84%E6%97%A5%E6%9C%AC%E9%9A%A8%E8%A1%8C%E5%8F%A3%E8%AD%AF%E5%93%A1%EF%BC%8C%E5%B0%87%E6%88%91%E8%AA%AA%E7%9A%84%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E8%87%AA%E7%84%B6%E6%97%A5%E6%96%87%EF%BC%8C%E6%88%96%E5%B0%87%E6%97%A5%E6%96%87%E7%BF%BB%E8%AD%AF%E7%82%BA%E4%B8%AD%E6%96%87%E3%80%82" target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 border-2 border-emerald-300 transition-all hover:scale-105">
+        <i class="fa-solid fa-language text-xl"></i>
+        <span class="text-xs sm:text-sm">ChatGPT 口譯</span>
+    </a>
 
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
@@ -495,7 +553,41 @@
             menu.classList.add('hidden');
         }
 
-        // Expense Tracker Logic using LocalStorage
+        // --- 1. DAILY PROGRESS TRACKER ---
+        let dayStatuses = JSON.parse(localStorage.getItem('kumano_day_status')) || {
+            d1: 'pending',
+            d2: 'pending',
+            d3: 'pending',
+            d4: 'pending'
+        };
+
+        function initDayStatuses() {
+            for (let day in dayStatuses) {
+                const elem = document.getElementById(`status-${day}`);
+                if (elem) elem.value = dayStatuses[day];
+            }
+            calculateOverallProgress();
+        }
+
+        function updateDayStatus(day, value) {
+            dayStatuses[day] = value;
+            localStorage.setItem('kumano_day_status', JSON.stringify(dayStatuses));
+            calculateOverallProgress();
+        }
+
+        function calculateOverallProgress() {
+            const days = ['d1', 'd2', 'd3', 'd4'];
+            let completedCount = 0;
+            days.forEach(d => {
+                if (dayStatuses[d] === 'completed') completedCount++;
+            });
+
+            const percentage = Math.round((completedCount / days.length) * 100);
+            document.getElementById('overall-progress-text').innerText = `${percentage}% (${completedCount}/${days.length} 天)`;
+            document.getElementById('overall-progress-bar').style.width = `${percentage}%`;
+        }
+
+        // --- 2. EXPENSE TRACKER ---
         let expenses = JSON.parse(localStorage.getItem('kumano_expenses')) || [
             { id: 1, day: 'D2', item: '美山亭午餐', amount: 3200, payer: '小明' }
         ];
@@ -504,7 +596,7 @@
             const tbody = document.getElementById('expense-list-body');
             tbody.innerHTML = '';
 
-            expenses.forEach((exp, index) => {
+            expenses.forEach((exp) => {
                 const tr = document.createElement('tr');
                 tr.className = 'border-b border-slate-700/50 hover:bg-slate-700/30';
                 tr.innerHTML = `
@@ -531,19 +623,11 @@
             const amount = parseFloat(document.getElementById('exp-amount').value);
             const payer = document.getElementById('exp-payer').value;
 
-            const newExp = {
-                id: Date.now(),
-                day,
-                item,
-                amount,
-                payer
-            };
-
+            const newExp = { id: Date.now(), day, item, amount, payer };
             expenses.push(newExp);
             localStorage.setItem('kumano_expenses', JSON.stringify(expenses));
             renderExpenses();
 
-            // Reset Form Inputs
             document.getElementById('exp-item').value = '';
             document.getElementById('exp-amount').value = '';
             document.getElementById('exp-payer').value = '';
@@ -564,9 +648,73 @@
             document.getElementById('per-person-val').innerText = `¥${perPerson.toLocaleString()}`;
         }
 
-        // Initialize on Load
+        // --- 3. PHOTO GALLERY ---
+        let photos = JSON.parse(localStorage.getItem('kumano_photos')) || [];
+
+        function renderPhotos() {
+            const grid = document.getElementById('photo-grid');
+            grid.innerHTML = '';
+
+            if (photos.length === 0) {
+                grid.innerHTML = `<p class="text-xs text-slate-500 col-span-full text-center py-4">尚無收藏的照片，點擊上方按鈕新增第一張打卡照吧！</p>`;
+                return;
+            }
+
+            photos.forEach(photo => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow relative group';
+                card.innerHTML = `
+                    <img src="${photo.src}" alt="${photo.title}" class="w-full h-40 object-cover">
+                    <div class="p-3 flex justify-between items-center text-xs">
+                        <span class="font-bold text-slate-200 truncate mr-2">${photo.title}</span>
+                        <button onclick="deletePhoto(${photo.id})" class="text-rose-400 hover:text-rose-300">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function addPhoto(e) {
+            e.preventDefault();
+            const title = document.getElementById('photo-title').value;
+            const fileInput = document.getElementById('photo-file');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newPhoto = {
+                        id: Date.now(),
+                        title: title,
+                        src: e.target.result
+                    };
+                    photos.push(newPhoto);
+                    try {
+                        localStorage.setItem('kumano_photos', JSON.stringify(photos));
+                    } catch(err) {
+                        alert('照片儲存空間已滿，建議選擇較小張的照片！');
+                    }
+                    renderPhotos();
+                    document.getElementById('photo-title').value = '';
+                    fileInput.value = '';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function deletePhoto(id) {
+            photos = photos.filter(p => p.id !== id);
+            localStorage.setItem('kumano_photos', JSON.stringify(photos));
+            renderPhotos();
+        }
+
+        // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
+            initDayStatuses();
             renderExpenses();
+            renderPhotos();
         });
     </script>
 </body>
